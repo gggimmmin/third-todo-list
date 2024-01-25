@@ -1,13 +1,7 @@
-import { InputArea } from "./components/InputArea";
-import { Header } from "./components/layout/Header";
+import React from "react";
 
 function App() {
-  return (
-    <>
-      <Header />
-      <InputArea />
-    </>
-  );
+  return <></>;
 }
 
 export default App;
