@@ -1,23 +1,24 @@
 import React, { useState } from "react";
 import { Input } from "./components/Input";
 import { TodoList } from "./components/TodoList";
+import uuid from "react-uuid";
 
 function App() {
   const [todos, setTodos] = useState([
     {
-      id: 1,
+      id: uuid(),
       title: "제목1",
       content: "내용1",
       isDone: false,
     },
     {
-      id: 2,
+      id: uuid(),
       title: "제목2",
       content: "내용2",
       isDone: false,
     },
     {
-      id: 3,
+      id: uuid(),
       title: "제목3",
       content: "내용3",
       isDone: true,

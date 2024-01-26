@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import uuid from "react-uuid";
 
 export const Input = ({ todos, setTodos }) => {
   const [title, setTitle] = useState("");
@@ -9,7 +10,7 @@ export const Input = ({ todos, setTodos }) => {
         onSubmit={(e) => {
           e.preventDefault();
           const newTodo = {
-            id: 5,
+            id: uuid(),
             title: title,
             content: content,
             isDone: false,
