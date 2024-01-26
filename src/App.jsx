@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Input } from "./components/Input";
+import { TodoList } from "./components/TodoList";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -27,46 +28,9 @@ function App() {
     <>
       <header>To Do List</header>
       <main>
-        <Input />
-        <div>
-          <h2>Working...🚀</h2>
-          {todos.map((todo) => {
-            return (
-              <div>
-                <p>{todo.id}</p>
-                <h3>{todo.title}</h3>
-                <p>{todo.content}</p>
-                <p>완료여부:{todo.isDone.toString()}</p>
-                <button>완료</button>
-                <button
-                  onClick={() => {
-                    const deletedTodos = todos.filter((item) => {
-                      return item.id !== todo.id;
-                    });
-                    setTodos(deletedTodos);
-                  }}
-                >
-                  삭제
-                </button>
-              </div>
-            );
-          })}
-        </div>
-        <div>
-          <h2>Done...✅</h2>
-          {todos.map((todo) => {
-            return (
-              <div>
-                <p>{todo.id}</p>
-                <h3>{todo.title}</h3>
-                <p>{todo.content}</p>
-                <p>완료여부:{todo.isDone.toString()}</p>
-                <button>완료</button>
-                <button>삭제</button>
-              </div>
-            );
-          })}
-        </div>
+        <Input todos={todos} setTodos={setTodos} />
+        <TodoList todos={todos} setTodos={setTodos} listIsDone={false} />
+        <TodoList todos={todos} setTodos={setTodos} listIsDone={true} />
       </main>
       <footer>made by gggimmmin</footer>
     </>
