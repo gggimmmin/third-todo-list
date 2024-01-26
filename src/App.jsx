@@ -7,8 +7,8 @@ function App() {
   const [todos, setTodos] = useState([
     {
       id: uuid(),
-      title: "제목1",
-      content: "내용1",
+      title: "리액트 공부",
+      content: "리액트 1강 듣기",
       isDone: false,
     },
     {

@@ -26,7 +26,7 @@ export const TodoList = ({ todos, setTodos, listIsDone }) => {
                     setTodos(newTodos);
                   }}
                 >
-                  완료
+                  {listIsDone ? "취소" : "완료"}
                 </button>
                 <button
                   onClick={() => {
