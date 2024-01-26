@@ -1,9 +1,7 @@
 import React, { useState } from "react";
+import { Input } from "./components/Input";
 
 function App() {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-
   const [todos, setTodos] = useState([
     {
       id: 1,
@@ -29,32 +27,7 @@ function App() {
     <>
       <header>To Do List</header>
       <main>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            const newTodo = {
-              id: 5,
-              title: title,
-              content: content,
-              isDone: false,
-            };
-            setTodos([...todos, newTodo]);
-          }}
-        >
-          <input
-            value={title}
-            onChange={(e) => {
-              setTitle(e.target.value);
-            }}
-          />
-          <input
-            value={content}
-            onChange={(e) => {
-              setContent(e.target.value);
-            }}
-          />
-          <button type="submit">제출</button>
-        </form>
+        <Input />
         <div>
           <h2>Working...🚀</h2>
           {todos.map((todo) => {
@@ -65,7 +38,16 @@ function App() {
                 <p>{todo.content}</p>
                 <p>완료여부:{todo.isDone.toString()}</p>
                 <button>완료</button>
-                <button>삭제</button>
+                <button
+                  onClick={() => {
+                    const deletedTodos = todos.filter((item) => {
+                      return item.id !== todo.id;
+                    });
+                    setTodos(deletedTodos);
+                  }}
+                >
+                  삭제
+                </button>
               </div>
             );
           })}

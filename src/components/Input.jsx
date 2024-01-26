@@ -1,0 +1,36 @@
+import React, { useState } from "react";
+
+export const Input = ({ todos, setTodos }) => {
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  return (
+    <div>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          const newTodo = {
+            id: 5,
+            title: title,
+            content: content,
+            isDone: false,
+          };
+          setTodos([...todos, newTodo]);
+        }}
+      >
+        <input
+          value={title}
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
+        />
+        <input
+          value={content}
+          onChange={(e) => {
+            setContent(e.target.value);
+          }}
+        />
+        <button type="submit">제출</button>
+      </form>
+    </div>
+  );
+};
